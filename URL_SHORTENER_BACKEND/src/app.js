@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { logger } from "./middleware/logger.middleware.js";
 import urlRoutes from "./routes/url.route.js";
 import authRoutes from "./routes/auth.route.js";
+import cors from "cors";
 
 dotenv.config({
     path: "./.env"
@@ -11,6 +12,7 @@ dotenv.config({
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(logger);
 
